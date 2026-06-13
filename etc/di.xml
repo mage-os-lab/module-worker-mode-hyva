@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Rees Solutions. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!--
+        Clear Hyva\Theme\ViewModel\HyvaCsp memoized state between requests in FrankenPHP worker mode.
+
+        HyvaCsp caches $memoizedPolicies (collected CSP fetch policies) and $memoizedAreaCode
+        in private properties after the first call. In worker mode these persist across requests.
+        If any request populates $memoizedPolicies without unsafe-eval (e.g. strict-CSP checkout),
+        all subsequent requests serve alpine3-csp.min.js (the CSP Alpine build) site-wide. The CSP
+        Alpine build cannot evaluate string expressions, so every Alpine component throws an error.
+
+        Our subclass implements ResetAfterRequestInterface; _resetState() nullifies both private
+        parent properties via reflection so each request re-collects policies fresh.
+    -->
+    <preference for="Hyva\Theme\ViewModel\HyvaCsp"
+                type="Reessolutions\WorkerModeHyva\ViewModel\HyvaCsp"/>
+
+</config>

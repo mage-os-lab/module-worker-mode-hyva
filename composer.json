@@ -1,0 +1,32 @@
+{
+    "name": "reessolutions/module-worker-mode-hyva",
+    "description": "Hyvä-specific FrankenPHP worker-mode compatibility fixes for Reessolutions projects",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "minimum-stability": "stable",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Mark Rees",
+            "email": "mark@rees.solutions",
+            "homepage": "http://www.rees.solutions/",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "extensions@rees.solutions"
+    },
+    "require": {
+        "php": "~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0",
+        "reessolutions/module-worker-mode": "^1.0",
+        "hyva-themes/magento2-theme-module": "*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Reessolutions\\WorkerModeHyva\\": ""
+        }
+    }
+}
