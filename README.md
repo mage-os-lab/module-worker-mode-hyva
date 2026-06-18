@@ -1,4 +1,4 @@
-# Reessolutions_WorkerModeHyva
+# MageOS_WorkerModeHyva
 
 Fixes Hyvä CSP state leaking across requests when running Magento 2 under FrankenPHP worker mode.
 
@@ -19,20 +19,20 @@ This module subclasses `HyvaCsp` and implements `ResetAfterRequestInterface`. Th
 | Dependency | Version |
 |---|---|
 | PHP | 8.0 – 8.5 |
-| `reessolutions/module-worker-mode` | ^1.0 |
+| `mage-os/module-worker-mode` | ^1.0 |
 | `hyva-themes/magento2-theme-module` | * |
 
 ## Installation
 
 ```bash
-composer require reessolutions/module-worker-mode-hyva
-bin/magento module:enable Reessolutions_WorkerModeHyva
+composer require mage-os/module-worker-mode-hyva
+bin/magento module:enable MageOS_WorkerModeHyva
 bin/magento setup:upgrade
 ```
 
 ## How it works
 
-`etc/di.xml` registers a preference that replaces `Hyva\Theme\ViewModel\HyvaCsp` with `Reessolutions\WorkerModeHyva\ViewModel\HyvaCsp`. The subclass adds only one method:
+`etc/di.xml` registers a preference that replaces `Hyva\Theme\ViewModel\HyvaCsp` with `MageOS\WorkerModeHyva\ViewModel\HyvaCsp`. The subclass adds only one method:
 
 ```php
 public function _resetState(): void

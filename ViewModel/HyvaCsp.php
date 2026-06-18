@@ -1,10 +1,10 @@
 <?php
 /**
- * Copyright © Rees Solutions. All rights reserved.
+ * Copyright © MageOS. All rights reserved.
  */
 declare(strict_types=1);
 
-namespace Reessolutions\WorkerModeHyva\ViewModel;
+namespace MageOS\WorkerModeHyva\ViewModel;
 
 use Magento\Framework\ObjectManager\ResetAfterRequestInterface;
 
